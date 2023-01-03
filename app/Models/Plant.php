@@ -10,7 +10,7 @@ class Plant extends Model
     use HasFactory;
     protected $table = 'plants';
 
-    protected $fillable  = ['name', 'type', 'description', 'image'];
+    protected $fillable  = ['name', 'type', 'description', 'price', 'image'];
 
     public function orders()
     {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\PlantsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,7 @@ Route::post('store-plant', [PlantsController::class, 'store']);
 Route::put('update-plant/{id}', [PlantsController::class, 'update']);
 Route::get('delete-plant/{id}', [PlantsController::class, 'destroy']);
 
-//Route::get('orders', [OrdersController::class, 'index']);
+
+Route::get('orders', [OrdersController::class, 'index']);
+Route::get('orders/{id}', [OrdersController::class, 'view']);
+Route::put('update-order/{id}', [OrdersController::class, 'update']);

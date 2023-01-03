@@ -17,6 +17,7 @@ class PlantFactory extends Factory
             'name' => $this->faker->name(),
             'type' => $this->faker->name(),
             'description' => $this->faker->sentence(10),
+            'price' => $this->faker->numberBetween(10, 1000),
             'image' => $this->faker->imageUrl(250, 250),
         ];
     }
