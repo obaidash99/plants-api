@@ -11,4 +11,9 @@ class Plant extends Model
     protected $table = 'plants';
 
     protected $fillable  = ['name', 'type', 'description', 'image'];
+
+    public function orders()
+    {
+        return $this->hasMany(Orders::class);
+    }
 }
