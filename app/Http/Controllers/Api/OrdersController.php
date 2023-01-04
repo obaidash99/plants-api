@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class OrdersController extends Controller
 {
     public function index() {
-        $orders = Orders::all();
+        $orders = Orders::where('status', '0')->get();
+        if($orders->count() > 0) {
+            return response()->json($orders);
+        }
         return response()->json($orders);
     }
 
@@ -30,5 +33,14 @@ class OrdersController extends Controller
             return response()->json($order);
         }
         return response()->json(["message" => "Order Not Found"]);
+    }
+
+    public function prevOrders()
+    {
+        $orders = Orders::where('status', '1')->get();
+        if($orders->count() > 0) {
+            return response()->json($orders);
+        }
+        return response()->json(["message" => "NO Previous Orders Found"]);
     }
 }

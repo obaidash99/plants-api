@@ -16,7 +16,7 @@ class Orders extends Model
         'total_price',
         'payment_mode',
         'payment_id',
-        'status',
+        'status', // 1 is completed, 0 is in process
         'tracking_no',
     ];
 

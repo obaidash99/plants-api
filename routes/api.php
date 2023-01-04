@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\PlantsController;
 use Illuminate\Http\Request;
@@ -26,7 +27,13 @@ Route::post('store-plant', [PlantsController::class, 'store']);
 Route::put('update-plant/{id}', [PlantsController::class, 'update']);
 Route::get('delete-plant/{id}', [PlantsController::class, 'destroy']);
 
-
 Route::get('orders', [OrdersController::class, 'index']);
+Route::get('previous-orders', [OrdersController::class, 'prevOrders']);
 Route::get('orders/{id}', [OrdersController::class, 'view']);
 Route::put('update-order/{id}', [OrdersController::class, 'update']);
+
+Route::get('cart', [CartController::class, 'cartList']);
+Route::post('store-cart', [CartController::class, 'addToCart']);
+Route::post('update-cart-item/{id}', [CartController::class, 'updateCart']);
+Route::get('remove-cart-item/{id}', [CartController::class, 'removeCart']);
+//Route::post('clear-cart', [CartController::class, 'clearAllCart']);
