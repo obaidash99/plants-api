@@ -16,6 +16,14 @@ class CartController extends Controller
         return response()->json($cart_items);
     }
 
+    public function viewCart($id){
+        $cart_item = Cart::where('id', $id)->first();
+        if($cart_item) {
+            return response()->json($cart_item);
+        }
+        return response()->json(["message" => "Order Not Found"]);
+    }
+
     public function addToCart(Request $request)
     {
         $cart_items = Cart::create($request->all());

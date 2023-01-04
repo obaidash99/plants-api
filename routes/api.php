@@ -30,9 +30,12 @@ Route::get('delete-plant/{id}', [PlantsController::class, 'destroy']);
 Route::get('orders', [OrdersController::class, 'index']);
 Route::get('previous-orders', [OrdersController::class, 'prevOrders']);
 Route::get('orders/{id}', [OrdersController::class, 'view']);
+Route::post('make-order', [OrdersController::class, 'makeOrder']);
 Route::put('update-order/{id}', [OrdersController::class, 'update']);
+Route::get('remove-order/{id}', [OrdersController::class, 'destroy']);
 
 Route::get('cart', [CartController::class, 'cartList']);
+Route::get('cart/{id}', [CartController::class, 'viewCart']);
 Route::post('store-cart', [CartController::class, 'addToCart']);
 Route::post('update-cart-item/{id}', [CartController::class, 'updateCart']);
 Route::get('remove-cart-item/{id}', [CartController::class, 'removeCart']);

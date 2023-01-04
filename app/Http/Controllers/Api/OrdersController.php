@@ -24,6 +24,11 @@ class OrdersController extends Controller
         return response()->json(["message" => "Order Not Found"]);
     }
 
+    public function makeOrder(Request $request) {
+        $order = Orders::create($request->all());
+        return response()->json($order);
+    }
+
     public function update(Request $request, $id)
     {
         $order = Orders::find($id);
@@ -42,5 +47,14 @@ class OrdersController extends Controller
             return response()->json($orders);
         }
         return response()->json(["message" => "NO Previous Orders Found"]);
+    }
+
+    public function destroy($id) {
+        $order = Orders::find($id);
+        if($order) {
+            $order->delete();
+            return response()->json(Orders::all());
+        }
+        return response()->json(["message" => "Order Not Found"]);
     }
 }
